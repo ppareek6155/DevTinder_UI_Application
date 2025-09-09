@@ -74,6 +74,7 @@ const Login = () => {
               />
             </fieldset>
           </div>
+
           {isSignUp && (
             <div>
               <fieldset className="fieldset">
@@ -121,7 +122,7 @@ const Login = () => {
             <fieldset className="fieldset">
               <legend className="fieldset-legend">Password</legend>
               <input
-                type="text"
+                type="password"
                 className="input"
                 placeholder="Password...."
                 value={Password}
