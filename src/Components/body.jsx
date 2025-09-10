@@ -9,7 +9,6 @@ const Body = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const user = useSelector((store) => store.user);
-  console.log("go to body");
   const handlePageRefresh = async () => {
     try {
       const res = await axios.get(
@@ -19,7 +18,6 @@ const Body = () => {
           withCredentials: true,
         }
       );
-      console.log(res);
       dispatch(addUser(res.data));
     } catch (err) {
       if ((err.status = 401)) {
@@ -27,10 +25,10 @@ const Body = () => {
       }
     }
   };
-  // useEffect(() => {
-  //   if (user === null) handlePageRefresh();
-  // }, []);
-  if (user === null) handlePageRefresh();
+  useEffect(() => {
+    if (!user) handlePageRefresh();
+  }, []);
+  //if (user === null) handlePageRefresh();
   return (
     <div>
       <Navbar />
