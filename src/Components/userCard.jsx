@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { removeFeed } from "../Store/feedSlice";
+import { BASE_URL } from "./constant";
 
 const UserCard = ({ user }) => {
   const { firstName, lastName, skills, photoUrl, _id } = user;
@@ -10,7 +11,7 @@ const UserCard = ({ user }) => {
 
   const handleUserRes = async (r) => {
     try {
-      const url = "http://localhost:8888/request/send/" + r + "/" + _id;
+      const url = BASE_URL + "/request/send/" + r + "/" + _id;
       const res = await axios.post(url, {}, { withCredentials: true });
       if ((res.status = "200")) {
         dispatch(removeFeed(_id));

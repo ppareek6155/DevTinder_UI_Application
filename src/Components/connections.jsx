@@ -1,11 +1,12 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { BASE_URL } from "./constant";
 
 const Connections = () => {
   const [connections, setConnections] = useState(null);
   const getConnections = async () => {
     try {
-      const data = await axios.get("http://localhost:8888/connections", {
+      const data = await axios.get(BASE_URL + "/connections", {
         withCredentials: true,
       });
       setConnections(data.data);

@@ -1,13 +1,14 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import ShowRequests from "./showRequests";
+import { BASE_URL } from "./constant";
 
 const Requests = () => {
   const [userRequest, setUserRequest] = useState(null);
 
   const getUserRequests = async () => {
     try {
-      const res = await axios.get("http://localhost:8888/request/recevied", {
+      const res = await axios.get(BASE_URL + "/request/recevied", {
         withCredentials: true,
       });
       setUserRequest(res.data);

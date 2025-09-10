@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import UserCard from "./userCard";
 import axios from "axios";
 import { addUser, userReducer } from "../Store/userSlice";
+import { BASE_URL } from "./constant";
 
 const Profile = () => {
   const userData = useSelector((store) => store.user);
@@ -16,7 +17,7 @@ const Profile = () => {
   const handleEdit = async () => {
     try {
       const res = await axios.put(
-        "http://localhost:8888/profile/edit",
+        BASE_URL + "/profile/edit",
         {
           firstName,
           lastName,

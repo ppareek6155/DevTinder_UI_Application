@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
+import { BASE_URL } from "./constant";
 
 const ShowRequests = ({ req }) => {
   const [userRes, setUserRes] = useState(null);
@@ -11,8 +12,7 @@ const ShowRequests = ({ req }) => {
     } else {
       userResponse = "rejected";
     }
-    const url =
-      "http://localhost:8888/request/review/" + userResponse + "/" + req._id;
+    const url = BASE_URL + "/request/review/" + userResponse + "/" + req._id;
     try {
       axios.post(url, {}, { withCredentials: true });
       setUserRes(r);

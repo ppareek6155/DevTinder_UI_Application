@@ -4,6 +4,7 @@ import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { addUser } from "../Store/userSlice";
 import { useEffect } from "react";
+import { BASE_URL } from "./constant";
 
 const Body = () => {
   const dispatch = useDispatch();
@@ -12,7 +13,7 @@ const Body = () => {
   const handlePageRefresh = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:8888/profile/view",
+        BASE_URL + "/profile/view",
 
         {
           withCredentials: true,
