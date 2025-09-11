@@ -10,7 +10,9 @@ const Body = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const user = useSelector((store) => store.user);
+  console.log("Body part loaded.");
   const handlePageRefresh = async () => {
+    console.log("page refresh loaded");
     try {
       const res = await axios.get(
         BASE_URL + "/profile/view",
@@ -19,14 +21,17 @@ const Body = () => {
           withCredentials: true,
         }
       );
+      console.log("after page load api call is " + BASE_URL + "/profile/view");
       dispatch(addUser(res.data));
     } catch (err) {
       if ((err.status = 401)) {
+        console.log("/profile/view api got failed due to authorization reason");
         navigate("/login");
       }
     }
   };
   useEffect(() => {
+    console.log("we are in useeffect hook and user is " + user);
     if (!user) handlePageRefresh();
   }, []);
   //if (user === null) handlePageRefresh();
