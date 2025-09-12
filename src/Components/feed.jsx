@@ -6,7 +6,6 @@ import UserCard from "./userCard";
 import { BASE_URL } from "./constant";
 
 const Feed = () => {
-  console.log("feed url");
   const dispatch = useDispatch();
   const users = useSelector((store) => store.feed);
   const HandleFeed = async () => {
