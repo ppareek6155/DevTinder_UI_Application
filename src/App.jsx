@@ -11,7 +11,6 @@ import Connections from "./Components/connections";
 import Requests from "./Components/requests";
 
 function App() {
-  console.log("App.js file.");
   return (
     <>
       <Provider store={AppStore}>
