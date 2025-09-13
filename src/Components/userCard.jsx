@@ -10,8 +10,8 @@ const UserCard = ({ user }) => {
   const dispatch = useDispatch();
 
   const handleUserRes = async (r) => {
+    const url = BASE_URL + "/request/send/" + r + "/" + _id;
     try {
-      const url = BASE_URL + "/request/send/" + r + "/" + _id;
       const res = await axios.post(url, {}, { withCredentials: true });
       if ((res.status = "200")) {
         dispatch(removeFeed(_id));
