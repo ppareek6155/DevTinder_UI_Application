@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { BASE_URL } from "./constant";
+import { Link } from "react-router-dom";
 
 const Connections = () => {
   const [connections, setConnections] = useState(null);
@@ -43,6 +44,13 @@ const Connections = () => {
               <div className="text-xs uppercase font-semibold opacity-60">
                 Remaining Reason
               </div>
+            </div>
+            <div>
+              <Link to={"/chat/" + r._id}>
+                <button className="btn-secondary border border-black m-2 bg-amber-300">
+                  Message
+                </button>
+              </Link>
             </div>
           </li>
         ))}

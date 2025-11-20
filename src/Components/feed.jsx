@@ -10,25 +10,25 @@ const Feed = () => {
   const dispatch = useDispatch();
   const users = useSelector((store) => store.feed);
   const navigate = useNavigate();
-  console.log("Geeting blank data", users);
-  const HandleFeed = async () => {
+
+  const handleFeed = async () => {
     const userFeed = await axios.get(BASE_URL + "/user/feed", {
       withCredentials: true,
     });
     dispatch(addUserFeed(userFeed.data));
-    console.log(userFeed);
-    if (!userFeed) {
-      navigate("/");
-    }
   };
 
   useEffect(() => {
-    HandleFeed();
-  }, []);
+    handleFeed();
+  }, [!users]);
 
-  // if (!users) {
-  //   navigate("/");
-  // }
+  if (!users) {
+    return (
+      <>
+        <h1>No data available</h1>
+      </>
+    );
+  }
   return (
     <div className="justify-center">
       <UserCard user={users[0]} />

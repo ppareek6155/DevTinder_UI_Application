@@ -10,7 +10,7 @@ const Body = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const user = useSelector((store) => store.user);
-  console.log("body part");
+
   const handlePageRefresh = async () => {
     try {
       const res = await axios.get(

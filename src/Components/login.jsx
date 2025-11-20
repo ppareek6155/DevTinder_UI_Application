@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addUser } from "../Store/userSlice";
 import axios from "axios";
@@ -27,7 +27,7 @@ const Login = () => {
         },
         { withCredentials: true }
       );
-      console.log("after login");
+
       dispatch(addUser(userInfo.data));
       navigate("/feed");
     } catch (err) {
@@ -54,10 +54,12 @@ const Login = () => {
       console.log("Error while SignUp : " + err.message);
     }
   };
+  useEffect(() => {
+    if (user) {
+      navigate("/feed");
+    }
+  }, [user]);
 
-  if (user) {
-    navigate("/feed");
-  }
   return (
     <>
       <div className="card bg-base-100 w-96 shadow-sm  border border-black justify-center">

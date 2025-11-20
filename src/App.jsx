@@ -9,6 +9,7 @@ import Logout from "./Components/logout";
 import Body from "./Components/body";
 import Connections from "./Components/connections";
 import Requests from "./Components/requests";
+import Chat from "./Components/chat";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
               <Route path="/friends" element={<Connections />} />
               <Route path="/request" element={<Requests />} />
               <Route path="/profile" element={<Profile />} />
+              <Route path="/chat/:targetUserId" element={<Chat />} />
             </Route>
           </Routes>
         </BrowserRouter>
