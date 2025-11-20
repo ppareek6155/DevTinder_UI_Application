@@ -27,7 +27,7 @@ const Login = () => {
         },
         { withCredentials: true }
       );
-
+      console.log("after login");
       dispatch(addUser(userInfo.data));
       navigate("/feed");
     } catch (err) {
